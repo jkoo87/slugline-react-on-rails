@@ -1,0 +1,2 @@
+module SluglinesHelper
+end

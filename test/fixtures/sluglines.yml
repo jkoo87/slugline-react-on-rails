@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  is_morning: false
+  line: MyString
+  location: MyText
+  description: MyText
+  latitude: 9.99
+  longitude: 9.99
+  best_hours: MyString
+  good_hours: MyString
+  destinations: MyText
+  returning_stations: MyText
+  driver_note: MyText
+  parking_tip: MyText
+  note: MyText
+
+two:
+  name: MyString
+  is_morning: false
+  line: MyString
+  location: MyText
+  description: MyText
+  latitude: 9.99
+  longitude: 9.99
+  best_hours: MyString
+  good_hours: MyString
+  destinations: MyText
+  returning_stations: MyText
+  driver_note: MyText
+  parking_tip: MyText
+  note: MyText

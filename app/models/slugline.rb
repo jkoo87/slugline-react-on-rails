@@ -1,0 +1,2 @@
+class Slugline < ApplicationRecord
+end

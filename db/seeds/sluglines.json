@@ -1,0 +1,919 @@
+[
+  {
+    "name": "Bob's",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "Just west of I-95 near the intersection of Old Keene Mill Road and Bland Street in Springfield, VA near the Springfield Town Center (aka Springfield Mall). The line itself is across the street from the parking by the gas station off of Old Keene Mill Road.",
+    "description":
+      "This location has undergone the test of time.  Although the construction of the \"Mixing Bowl\" disrupted this line for a short time, it is currently in full operation.  Because of some of the changes there are a few names to describe this location (Bob's, Springfield Plaza, Long John Silvers, Chi Chi's).  All names are actually the same slug line. There are two slug lines that operate out of the commuter lot. Line #1: L’Enfant Plaza and 14th street. Line #2: 18th Street locations (sometimes called Memorial Bridge).",
+    "latitude": 38.77983520000001,
+    "longitude": -77.18770849999999,
+    "best_hours": "7:00 - 8:00 a.m.",
+    "good_hours": "5:45 - 7:00 a.m.",
+    "destinations": [
+      "L’Enfant Plaza",
+      "14th Street (all points)",
+      "18th Street (Memorial Bridge area)",
+      "23rd Street",
+      "Union Station (One way - currently no return line. Must use another line in the afternoon)",
+      "Navy Yard (Just emerging! Some drivers are picking up for the Navy Yard now)"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "15th & H/14th & New York Ave",
+      "Commerce Building",
+      "L’Enfant Plaza"
+    ],
+    "driver_note":
+      "From Old Keene Mill Road heading East, drivers pull into the old Long John Silvers and circle around the back side.",
+    "parking_tip":
+      "Commuter lot next to K-Mart  approx. 155 spaces. The commuter lot is located across the street from the slug lines between the First Union Bank and K-Mart. Commuter lot normally fills by 7:30 or 8:00 a.m."
+  },
+  {
+    "name": "Braddock Road",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location": "Along Braddock road (East Bound) from Ox Rd (123) to I-495.",
+    "description":
+      "Slugs will have Mark Center or Pentagon signs displayed.  Slugs will be standing at bus stops and/or other paved areas so that drivers can easily and safely move out of traffic to pick up riders.",
+    "latitude": 38.8255552,
+    "longitude": -77.3149424,
+    "best_hours": "7:00 - 8:00 a.m.",
+    "good_hours": "5:45 - 7:00 a.m.",
+    "destinations": ["Pentagon", "Mark Center"],
+    "returning_stations": ["Pentagon", "Mark Center"],
+    "driver_note":
+      "East bound Braddock Rd drivers who will pick up slugs as a courtesy and/or to utilize the HOV on I-395 N.",
+    "parking_tip": "No parking is needed because riders walk to Braddock Rd."
+  },
+  {
+    "name": "Cardinal Forest Shopping Center",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "Springfield, near the intersection of Old Keene Mill Road and Rolling Road.",
+    "description":
+      "The Cardinal Forest (occasionally called Rolling Road) slug line operates next to the Shell station on Old Keene Mill Road, across from the Cardinal Forest Shopping Area. Slugs stand a few yards from the bus stop, actually putting them on the edge of the Springfield Golf and Country Club parking lot.",
+    "latitude": 38.78091360000001,
+    "longitude": -77.2315221,
+    "best_hours": "7:00 - 8:00 a.m.",
+    "good_hours": "6:00 - 7:00 a.m.",
+    "destinations": ["Pentagon (almost exclusively)"],
+    "returning_stations": [
+      "Pentagon",
+      "14th & NY",
+      "14th & Constitution",
+      "L’Enfant Plaza",
+      "19 & F Street"
+    ],
+    "driver_note":
+      "This is rather tricky, but cars pull into the Shell station and then maneuver to a paved area that connects the Shell station and the country club. This paved area marked \"No Drive\" is where the slugs are picked up. Drivers depart by driving through the country club parking lot and back onto Old Keene Mill Road.",
+    "parking_tip":
+      "Parking: Commuter lot, limited (100 spaces). The lot is in the Cardinal Forest Shopping Center. Watch for the painted lines and the signs. Just as the Metro riders must do, you must walk across the street to the slug line."
+  },
+  {
+    "name": "Daventry Subdivision",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "Location: Near the intersection of Old Keene Mill Road and Hunter Village Drive in Springfield, VA.",
+    "description":
+      "The Daventry slug line is located in the Daventry Subdivision. The line has located about 50 yards south on Hunter Village Drive. Slugs wait on the right shoulder on northbound Hunter Village Rd.  The carpool location is marked with signage on the shoulder.",
+    "latitude": 38.77421085070885,
+    "longitude": -77.20681150003657,
+    "best_hours": "5:30 -7:00 a.m.",
+    "good_hours": "7:00 -8:00 a.m.",
+    "destinations": ["Pentagon"],
+    "returning_stations": [
+      "Pentagon",
+      "14th & NY, 14th & Constitution",
+      "L’Enfant Plaza",
+      "19th & F Street"
+    ],
+    "driver_note":
+      "Cars traveling north on Hunter Village Drive simply pull to the median island where the slugs are waiting. Otherwise, cars from Old Keene Mill Road must make a U-turn before pulling into the median because there isn’t a turnaround point once the road returns to a two-way street. Be sure to leave enough room for other cars to make a U-turn in front of you. They are not trying to \"cut in line,\" but are simply dropping off riders.",
+    "parking_tip":
+      "Curbside parking is very limited. Park on the shoulder of Hunter Village Drive south of the intersection, but pay close attention to the No Parking signs!"
+  },
+  {
+    "name": "Lorton VRE ",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "Exit 163 off I-95 (Commuter Rail Station) Actual address is 8990 Lorton Station Blvd, Lorton, VA 22079 however, Yahoo maps does not place it there. Instead try 7999 Lorton Road, Lorton, VA  22079",
+    "description":
+      "The slug line is located just off Lorton Station Road at the Lorton VRE station. The line forms on the main road entering the Lorton VRE Station and commuter lot prior to the covered bus shelter. There is no dedicated slug-line at the Pentagon for return rides to this location. Most people who slug to the Pentagon or L'Enfant return to Lorton via bus or train.",
+    "latitude": 38.7050885,
+    "longitude": -77.22085240000001,
+    "best_hours": "5:30 - 8:30 a.m.",
+    "good_hours": "5:30 - 8:30 a.m.",
+    "destinations": [
+      "Pentagon",
+      "L'Enfant Plaza",
+      "Crystal City",
+      "Foggy Bottom",
+      "Pentagon City",
+      "Metro Center",
+      "McPherson Square"
+    ],
+    "returning_stations": ["Pentagon"],
+    "driver_note":
+      "Drivers pick up slugs from the Lorton Fairfax Connector bus line located at the Pentagon Bus Depot (Platform P). Drivers call out \"Lorton VRE.\"",
+    "parking_tip":
+      "Excellent. Commuter parking lot with 717 free parking spaces."
+  },
+  {
+    "name": "Huntsman and Sydenstricker",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "note":
+      "this line maybe out of operation due to the new Park and Ride Lot at Sydenstricker.",
+    "location":
+      "Springfield, near the intersection of Huntsman Boulevard and Sydenstricker Road.",
+    "description":
+      "Occasionally called Orange Hunt because of the proximity to the Orange Hunt School. Operates near the bus stop just north of the intersection of Huntsman Boulevard and Sydenstricker Road.",
+    "latitude": 38.7665709,
+    "longitude": -77.25325299999997,
+    "best_hours": "5:30 - 7:00 a.m.",
+    "good_hours": "7:00 - 8:30 a.m.",
+    "destinations": ["Pentagon", "Rosslyn"],
+    "returning_stations": [
+      "Pentagon",
+      "14th & NY",
+      "14th & Constitution",
+      "L’Enfant Plaza"
+    ],
+    "driver_note":
+      "Normally, drivers normally pick up slugs, heading north on Huntsman.",
+    "parking_tip":
+      "Park on the shoulder of Huntsman south of intersection or on Sydenstriker near school. Pay close attention to the No Parking signs!"
+  },
+  {
+    "name": "Rolling Valley",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "Springfield/Burke, in the commuter lot near the intersection of 9300 Old Keene Mill Road and Shiplett Boulevard.",
+    "description":
+      "Operates in the commuter lot next to the shopping center. Normally, slugs stand next to the bus stop in the center of the parking area.",
+    "latitude": 38.775857,
+    "longitude": -77.262958,
+    "best_hours": "7:00 - 8:00 a.m.",
+    "good_hours": "5:45 - 7:00 a.m,  8:00 - 8:30 a.m.",
+    "destinations": [
+      "Pentagon (heaviest volume)",
+      "Foggy Bottom (at the Metro station between 23rd and I Street)",
+      "20th Street & L",
+      "Crystal City",
+      "14th and Constitution",
+      "L’Enfant Plaza",
+      "18th Street",
+      "Rosslyn (Easy walk to Georgetown)"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "14th & NY",
+      "14th & Constitution",
+      "L’Enfant Plaza",
+      "19th & F Street",
+      "Rosslyn"
+    ],
+    "driver_note":
+      "Drivers pull into the lot from the west and circle around so that the slugs are on the passenger side. Cars then drive through the lot and back onto Old Keene Mill Road.",
+    "parking_tip": "Commuter lot. Excellent (628 spaces)"
+  },
+  {
+    "name": "Saratoga Park and Ride",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "Saratoga Park and Ride, Intersection of Barta Rd and Fairfax County Parkway, Springfield, VA 22153",
+    "description":
+      "this line is just forming.  Slugs and drivers use the Sydenstricker commuter lot but this new location is emerging.  The Saratoga lot has 2 bus routes to and from the Pentagon. They are Fairfax County Connector Routes 393 and 394. The Saratoga lot is very large and underutilized. It is also about half a mile from the Fairfax County Parkway and Rolling Road intersection. The two closest commuter lots to Saratoga are Sydenstricker and Gambrill. Both lots fill up early and there is little \"spill over\" parking in the adjoining neighborhoods. Most people are unaware of the Saratoga lot. From the Pentagon, coming home, Saratoga sluggers can use the same line for Sydenstricker and Rolling Valley (Springfield/Burke stop).",
+    "latitude": 38.7454376,
+    "longitude": -77.2101328,
+    "best_hours": "Not determined yet",
+    "good_hours": "Not determined yet",
+    "destinations": ["Pentagon"],
+    "returning_stations": ["Pentagon"],
+    "driver_note": "N/A",
+    "parking_tip": "N/A"
+  },
+  {
+    "name": "Sydenstricker Commuter Lot",
+    "is_morning": true,
+    "line": "Springfield/Lorton Lines",
+    "location":
+      "West Springfield, near the intersection of Sydenstricker and Hooes Road (Hwy 640) adjacent to the Fairfax County Parkway (Hwy 7100).",
+    "description":
+      "West Springfield, near the intersection of Sydenstricker and Hooes Road (Hwy 640) adjacent to the Fairfax County Parkway (Hwy 7100). The Gambrill commuter lot located just to the east of the Sydenstricker lot is not used for slugging but for carpools.",
+    "latitude": 38.7551324,
+    "longitude": -77.2404064,
+    "best_hours": "7:00 - 8:00 a.m.",
+    "good_hours": "5:45 - 7:00 a.m,  8:00 - 8:30 a.m.",
+    "destinations": ["Pentagon", "Rosslyn"],
+    "returning_stations": ["Pentagon", "14th & Constitution", "L’Enfant Plaza"],
+    "driver_note": "N/A",
+    "parking_tip": "N/A"
+  },
+  {
+    "name": "Rt.123 and I95 ",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "note":
+      "The Tyson's Corner destination is just emerging as of October 2016. Very little information is available at this time.",
+    "location":
+      "The Rt. 123/I95 Commuter lot is located at the intersection of Rt. 123 and I95 (near exit 160)",
+    "description":
+      "This is a brand new slugging area that was created after the reduction in parking spaces at Potomac Mills Mall on February 14th, 2011.",
+    "latitude": 38.775857,
+    "longitude": -77.262958,
+    "best_hours": "6:20 AM - 8:15 AM",
+    "good_hours": "6:00 AM - 9:40 AM",
+    "destinations": ["Tyson's Corner"],
+    "returning_stations": [],
+    "driver_note": "N/A",
+    "parking_tip": "Excellent - 770 spaces. "
+  },
+  {
+    "name": "Horner Road",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "note":
+      "An new slug line is emerging at Horner Road to the Army National Guard Readiness Center in Arlington, VA. There would be no return line but there isa an email distribution list used to cooridnate rides in the afternoon. Stay tuned for new updates!",
+    "location":
+      "Woodbridge, near the intersection of Prince William Parkway and Horner Road just west of I95 off exit 158.",
+    "description":
+      "In the commuter lot just off exit 158 from I95. In fact, as you exit the HOV southbound, you must drive through or around the commuter lot. The line itself is located in the center of the commuter lot, next to the bus shelter.",
+    "latitude": 38.65829,
+    "longitude": -77.279265,
+    "best_hours": "Very early lot, 5:30 - 7:00 a.m.",
+    "good_hours":
+      "With the newly expanded commuter lot this line may extend to 8:00 a.m. or later. If you want an early slug or ride into DC even before the HOV restriction is lifted, this is the best lot.",
+    "destinations": [
+      "Pentagon",
+      "Rosslyn",
+      "Crystal City",
+      "14th Street (all points)",
+      "L’Enfant Plaza",
+      "18th Street Constitution",
+      "Washington Navy Yard"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "15th & NY",
+      "Commerce Building",
+      "Rosslyn",
+      "Crystal City"
+    ],
+    "driver_note":
+      "Normally, drivers form a line on the south side of the bus island.",
+    "parking_tip":
+      "Commuter lot. The lot is very large and can now accommodate approximately 2,425  commuters. "
+  },
+  {
+    "name": "Montclair",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "location": "Waterway Drive and Spring Branch Blvd, Montclair, VA.",
+    "description": "Slugs form in front of the marquee near the bus stop.",
+    "latitude": 38.625191,
+    "longitude": -77.347717,
+    "best_hours": "6:00 - 6:30 a.m",
+    "good_hours":
+      "Because of the limited parking, it is best to go to Potomac Mills or Horner Road after 6:30 am.",
+    "destinations": ["Pentagon"],
+    "returning_stations": ["Pentagon", "14th & NY"],
+    "driver_note":
+      "Drivers approach from the west heading towardsCardinal Drive so that the slugs are on the passenger side of the car. For drivers dropping off slugs in the evening, most turn north onto Spring Branch Boulevard to avoid the heavier traffic on Waterway Drive.",
+    "parking_tip":
+      "Limited curbside parking along Spring Branch Boulevard. Take note of the \"No Parking\" signs."
+  },
+  {
+    "name": "Montclair Northgate",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "location":
+      "Montclair, at the intersection of Waterway Drive and Northgate.",
+    "description":
+      "The line forms along the eastern side of Waterway Drive, next to the bus stop on the sidewalk.",
+    "latitude": 38.6085218,
+    "longitude": -77.3357521,
+    "best_hours": "5:30 - 6:30 a.m.",
+    "good_hours": "5:30 - 6:30 a.m.",
+    "destinations": ["Pentagon"],
+    "returning_stations": ["Pentagon", "14th & NY"],
+    "driver_note":
+      "Drivers normally pick up slugs, heading north on Waterway Drive.",
+    "parking_tip":
+      "Parking is along the shoulder of Northgate. Pay attention to the No Parking signs."
+  },
+  {
+    "name": "Old Hechinger’s",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "location":
+      "Woodbridge, at Old Hechinger’s, near the intersection of Old Bridge Road and Gordon Boulevard (Route 123). Approximately 1310 Old Bridge Road, Woodbridge, VA 22192",
+    "description":
+      "Operates in the parking lot of where the Old Hechinger’s store use to be before it was demolished. Normally, slugs stand near the bus stop (see map). Drivers pull into the lot from the west from Old Bridge and drive through the lot so that the slugs are on the passenger side.",
+    "latitude": 38.6744102,
+    "longitude": -77.258275,
+    "best_hours": "7:00 - 8:30 a.m.",
+    "good_hours": "6:00 - 7:00 a.m.",
+    "destinations": [
+      "14th and Constitution",
+      "14th & I Streets",
+      "18th Street"
+    ],
+    "returning_stations": ["Pentagon", "15th & NY", "14th & Constitution"],
+    "driver_note":
+      "Drivers normally pull into the lot from Old Bridge Road, drive through the lot, then exit onto Route 123, heading south to the HOV.",
+    "parking_tip":
+      "Commuter lot. Excellent with 200 new spaces recently added for a total of 594 total spaces. Lot usually fills by 8:00 a.m. "
+  },
+  {
+    "name": "Potomac Mills",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "note":
+      "Changes at Potomac Mills - Announcements were distributed regarding the commuter parking location change in Potomac Mills. This will mean some major changes to were slugs will need to park and get picked up.",
+    "location":
+      "Woodbridge, on the South side of Potomac Mills Shopping Mall near the main entrance in parking areas #12 and #13. Approximately at 14362 Gideon Drive, Dale City, VA 22193",
+    "description":
+      "There are three distinct slug lines on the southern side of Potomac Mills Road along Gideon Drive. Line #1 (eastern most line closest to Pier 1 Imports) is for the Pentagon. Line #2 is for downtown DC locations and Line #3 is for Crystal City, Rosslyn destinations.",
+    "latitude": 38.640216,
+    "longitude": -77.2972835,
+    "best_hours": "5:30 - 9:00 a.m.",
+    "good_hours": "6:30 to 9:00 a.m.",
+    "destinations": [
+      "Pentagon",
+      "Rosslyn",
+      "14th Street(all points)",
+      "Crystal City",
+      "18th Street Constitution",
+      "L’Enfant Plaza",
+      "Memorial Bridge area",
+      "23rd Street"
+    ],
+    "returning_stations": ["Pentagon", "14th & NY", "Rosslyn", "Crystal City"],
+    "driver_note":
+      "If picking up Pentagon slugs enter at the entrance nearest Pier 1 and if picking up for the other locations enter near McDonalds. ",
+    "parking_tip":
+      "Commuter Lot - 275 spaces. If parking in the Potomac Mills Shopping areas #12 and #13. Lot fills by 7:00am  Be aware of the green lines that designate the commuter lot portion from regular shopping mall parking. If you park outside the lined area, you may get a parking ticket. Blue stripes are for mall employees and not commuter parkting. Prince William Square Warning! The parking area across the street from Potomac Mills Commuter lot  ( Prince William Square) is NOT an official commuter lot.  Do not park there if the Potomac lot is full."
+  },
+  {
+    "name": "Route 234 Dumfries",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "location":
+      "Rt. 234 (Dumfries Road) is located off Exit 152 and east of I-95 and just prior to Route 1 across from McDonald's.",
+    "description":
+      "This is a popular pickup for drivers coming from Dumfries/Triangle and further south. It is the first commuter lot (i.e. slug line) north of the current southern end of the I-95 HOV lane. It is also a relatively quick northbound pickup since the lot is only 1/4 mile from the interstate and requires mostly right hand turns.  (Of course, the evening drop off requires left turns, but it still isn't too bad.) There is not direct access to the HOV lane, but the one mile stretch of regular interstate that must be traveled to get to the HOV entrance on the northbound side is never backed up, so there's no delay. Ongoing construction on the east side of the interstate at this exit is rumored to be a new off ramp and larger commuter lot with direct HOV access.",
+    "latitude": 38.5753609,
+    "longitude": -77.3192119,
+    "best_hours": "On normal workdays, the lot fills around 7:00 a.m.",
+    "good_hours": "On normal workdays, the lot fills around 7:00 a.m.",
+    "destinations": [
+      "Pentagon",
+      "14th & Constitution",
+      "14th at Commerce Dept",
+      "14th & New York",
+      "14th & F Street",
+      "18th Street",
+      "L'Enfant Plaza",
+      "Crystal City",
+      "Rossyln",
+      "Ballston"
+    ],
+    "returning_stations": ["Pentagon"],
+    "driver_note": "There are four separate lines at this location.",
+    "parking_tip": "Commuter lot."
+  },
+  {
+    "name": "Tackett's Mill",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "location":
+      "Lake Ridge, near the intersection of Minnieville Road and Old Bridge Road.",
+    "description":
+      "Operates out of two locations depending on the time of day. The first one operates across the street and east of the Tackett’s Mill Shopping Center. This is known as the  Old Commuter Lot, or McDonald’s. Officially it is the Lake Ridge Commuter Lot. The line itself is across the street from the commuter lot next to the mailboxes on Harbor Road. The second slug line (and largest) location is in the new lot. The new lot is less than a block east of the old lot. Officially this is the Minnieville Commuter Lot. There are two lines in the new lot: one for Pentagon and another for Crystal City and Rosslyn.",
+    "latitude": 38.676075,
+    "longitude": -77.276479,
+    "best_hours": "5:45 - 7:00 a.m.— Old Lot",
+    "good_hours": "7:00 - 9:00 a.m.— New Lot",
+    "destinations": ["Pentagon", "Rosslyn", "Crystal City"],
+    "returning_stations": [
+      "Pentagon",
+      "15th & NY",
+      "14th and D Street",
+      "Rosslyn",
+      "Crystal City"
+    ],
+    "driver_note":
+      "If you try to pick up a slug from the old lot after 7:00 a.m., your efforts may be in vain. After 7:00, you may want to wait at the new lot line.",
+    "parking_tip":
+      "Excellent. Two commuter lots are available. The new lot has approximately 530 spaces and the old lot, or McDonald’s, has about 120 spaces. In the old lot, be careful to park within the white lines that designate that portion of the shopping mall parking as a commuter lot. Otherwise, the police will ticket your car. There is also curbside parking between Harbor Road and Minnieville Road."
+  },
+  {
+    "name": "Dale City Commuter Lot (DCCL)",
+    "is_morning": true,
+    "line": "Woodbridge/Dale City",
+    "location":
+      "The Dale City Commuter Lot (DCCL) is located in Dale City, near the intersection of Minnieville Rd & Gemini Way, Dale City, VA 22193. ",
+    "description":
+      "This is a fairly new slug line that was created after the reduction in parking spaces at Potomac Mills Mall on February 14th, 2011.",
+    "latitude": 38.6535169,
+    "longitude": -77.3595772,
+    "best_hours": "around 6:15 a.m. for the Rosslyn destination",
+    "good_hours": "around 6:15 a.m. for the Rosslyn destination",
+    "destinations": ["Pentagon", "Rosslyn"],
+    "returning_stations": ["Rosslyn"],
+    "driver_note":
+      "If you try to pick up a slug from the old lot after 7:00 a.m., your efforts may be in vain. After 7:00, you may want to wait at the new lot line.",
+    "parking_tip": "Excellent."
+  },
+  {
+    "name": "Mine Road",
+    "is_morning": true,
+    "line": "Stafford Lines",
+    "note":
+      "New DC line emerging at the Route 610 Lot! The expanded commuter lot has created interest in starting a new line at 610.",
+    "location":
+      "Stafford, in the commuter lot south of Garrisonville Road (Route 610 ) off Stafford Boulevard. Use exit 143B (Route 610, Garrisonville) off I-95. Lot is near the intersection at Garrisionville and Mine Road, Stafford, VA 22554",
+    "description":
+      "Due to the HOT lanes, slugging has increased and now begins around 4:30 a.m. and is generally full by around 6:15. There are currently two lines: one for DC \"downtown\" destinations and another for the Pentagon/Crystal City. For the return trip in the afternoon from the Pentagon, look for the sign \"610- Mine Rd\". ",
+    "latitude": 38.4669189,
+    "longitude": -77.4186019,
+    "best_hours": "4:30 - 6:30 a.m.",
+    "good_hours": "4:30 - 6:30 a.m.",
+    "destinations": [
+      "Pentagon",
+      "Crystal City",
+      "Navy Yard",
+      "14th Street",
+      "L'Enfant Plaza"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "14th & NY",
+      "Rosslyn",
+      "L'Enfant Plaza",
+      "Crystal Gateway",
+      "14th and G Street"
+    ],
+    "driver_note":
+      "In the early morning hours, if your vehicle has the capacity and slugs are waiting, please pick up three (3) slugs.",
+    "parking_tip":
+      "Commuter lot. The Garrisonville park-and-ride lot is located on Staffordborough Boulevard just off Garrisonville Road (Rt. 610) about ½ mile west of I-95."
+  },
+  {
+    "name": "Route 610",
+    "is_morning": true,
+    "line": "Stafford Lines",
+    "note":
+      "With the increase in slugging generated from the I95 Express Lanes, fellow slugs have suggested starting a separate line for the DC commuters. The proposed new line would be adjacent to the the new bus shelter at the North end of the 610 lot.",
+    "location":
+      "Stafford, in the commuter lot behind McDonald’s, north of Garrisonville Road (Route 610 ) off Stafford Boulevard. Use exit 143B (Route 610, Garrisonville) off I-95. Lot is near the intersection at Garrisionville and Mine Road, Stafford, VA 22554.",
+    "description":
+      "Route 610 Lot - This commuter lot is located behind McDonalds. Slugs stand near the bus stop shelter near the center of the commuter lot. This lot was recently explanded and provides ample parking.",
+    "latitude": 38.4668761,
+    "longitude": -77.4185521,
+    "best_hours": "5:45 - 7:30 a.m.",
+    "good_hours": "5:45 - 7:30 a.m.",
+    "destinations": [
+      "Pentagon",
+      "Crystal City",
+      "Rosslyn",
+      "Downtown DC (Newly forming)"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "15th & NY",
+      "Rosslyn",
+      "L'Enfant Plaza",
+      "Crystal Gateway",
+      "14th and G Street"
+    ],
+    "driver_note":
+      "If no slugs are available, an option is to drive to Potomac Mills or Horner Road for possible riders.",
+    "parking_tip":
+      "Commuter lot. Excellent but is generally full by 6:45 a.m. After 6:45 many go to the new lot on Mine Road. The Garrisonville park-and-ride lot is located on Stafford borough Boulevard just off Garrisonville Road (Rt. 610) about ½ mile west of I-95."
+  },
+  {
+    "name": "Route 3 Gordon Road",
+    "is_morning": true,
+    "line": "Fredericksburg Lines",
+    "location":
+      "Fredericksburg, use exit 130 (Route 3 Fredericksburg/Culpepper, ) off I-95. Commuter lot and slug line are located approximately 2.5 miles west on Route 3 on the left side of the road near the 7-11. Address is 12135 Gordon Road, Fredericksburg, VA  22407",
+    "description":
+      "Forms in the commuter lot on the east side of the bus shelter.",
+    "latitude": 38.290004,
+    "longitude": -77.562833,
+    "best_hours": "5:30 - 7:15 a.m.",
+    "good_hours": "5:30 - 7:15 a.m.",
+    "destinations": ["Pentagon", "Crystal City", "Rosslyn", "14th Street"],
+    "returning_stations": ["Pentagon", "Rosslyn"],
+    "driver_note": "Pick up slugs near the bus shelter.",
+    "parking_tip": "Excellent. Commuter parking lot."
+  },
+  {
+    "name": "Route 17",
+    "is_morning": true,
+    "line": "Fredericksburg Lines",
+    "note":
+      "The sign at the Pentagon states \"Rt. 17 Stafford\" which is confusing because on I-95, the \"Fredericksburg\" exit is Rt 3, Exit 130 and the Rt. 17, exit 133, is listed as \"Falmouth/Warrenton.\" The Pentagon also has a sign listed as \"Fredericksburg\" which is used for those going to Rt. 3. ",
+    "location":
+      "Fredericksburg, use exit 133B (Route 17, Warrenton) off I-95. Commuter lot and slug line are located approximately .5 miles north on Route 17 on the left side of the road. The street address is: 627 Warrenton Road, Fredericksburg, VA, 22405",
+    "description": "Forms in the commuter lot behind the bus shelter.",
+    "latitude": 38.34615326774976,
+    "longitude": -77.50181306037905,
+    "best_hours": "5:30 - 8:30 a.m.",
+    "good_hours": "5:30 - 8:30 a.m.",
+    "destinations": ["Pentagon", "Crystal City", "Rosslyn", "14th Street"],
+    "returning_stations": ["Pentagon", "Rosslyn", "Crystal City"],
+    "driver_note": "Pick up slugs on the east side of the bus shelter.",
+    "parking_tip": "Excellent. Commuter parking lot."
+  },
+  {
+    "name": "Cushing Lot",
+    "is_morning": true,
+    "line": "I-66/Manassas Lines",
+    "note":
+      "There is a website devoted to the I66 slugs. Visit:www.66slug.com/ for more information!",
+    "location":
+      "Cushing Road Commuter Lot, Cushing Road, Manassas, VA 20109. Near the intersection of Route 234 Prince William Parkway and I66.",
+    "description": "NEW! More information soon!",
+    "latitude": 38.79506,
+    "longitude": -77.563859,
+    "best_hours": "5:45 - 7:30 a.m.",
+    "good_hours": "5:45 - 7:30 a.m.",
+    "destinations": ["Downtown DC (Newly forming)"],
+    "returning_stations": ["None at this time. Must use PRTC Bus."],
+    "driver_note": "n/a",
+    "parking_tip": "Commuter lot."
+  },
+  {
+    "name": "14th & Constitution",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "note":
+      "Cardinal Forest, Daventry, Mobil Station and Huntsman & Sydenstricker are no longer functioning from this location.",
+    "location":
+      "Washington, near the intersection of 14th Street and Constitution Avenue.",
+    "description":
+      "The location name is a little misleading because this line is not actually on the corner of 14th Street and Constitution. The line has moved a block south of its previous location because of the construction of the new Smithsonian museum. Currently the line is about 50 yards south of Madison Street.",
+    "latitude": 38.889572,
+    "longitude": -77.0321,
+    "best_hours": "4:00 - 5:00 p.m.",
+    "good_hours":
+      "It starts forming just prior to 4:00 p.m. and last until about 6:00 p.m.",
+    "destinations": ["Bob's", "Rolling Valley"],
+    "returning_stations": ["Bob's", "Rolling Valley"],
+    "driver_note": "Drivers can only pick up, heading south on 14th Street.",
+    "parking_tip": "Meter parking and parking garages."
+  },
+  {
+    "name": "14th at Commerce Dept",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "note":
+      "The lines for the 234 Commuter Lot and to Montclair have been removed from this page because they may not be active any longer.",
+    "location":
+      "Washington, near the intersection of 14th and D Street on the eastern side of the Commerce Building near the National Aquarium.",
+    "description":
+      "Like the slug line on 14th and New York, the one at the Commerce Building has two separate lines. The line is similar to the other lines on 14th street because it is co-located with a bus stop. The two lines service the Lake Ridge area (Old Hechinger’s) and Dale City (Potomac Mills, Horner Road).",
+    "latitude": 38.893401,
+    "longitude": -77.0320208,
+    "best_hours": "4:00 and 5:00 p.m.",
+    "good_hours":
+      "Most 234 lot people begin accumulating for these five buses:  3:54, 4:15, 4:34, 4:55, and 5:14, however there are people waiting for the earlier 3:14 and 3:35 buses too.",
+    "destinations": ["Potomac Mills", "Horner Road", "Old Hechinger’s"],
+    "returning_stations": ["Potomac Mills", "Horner Road", "Old Hechinger’s"],
+    "driver_note": "Drivers can only pick up heading south on 14th Street.",
+    "parking_tip": "Meter parking and parking garages."
+  },
+  {
+    "name": "14th and F Street",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location":
+      "Washington, near the intersection of 14th and F Street, near the 600 block.",
+    "description":
+      "The slug line is located in front of the Hamilton restaurant just a few meters from the bus stop (near the pole that has OmniRide information on it) at the corner of 14th and F street. Actually, there are three lines: One for Lake Ridge, another for Dale City, and a third for Montclair/234. These lines serve as both slug lines and OmniRide bus lines.",
+    "latitude": 38.4668761,
+    "longitude": -77.4185521,
+    "best_hours": "5:45 - 7:30 a.m.",
+    "good_hours": "5:45 - 7:30 a.m.",
+    "destinations": ["Tackett's Mill", "Potomac Mills", "Route 234 Dumfries"],
+    "returning_stations": [
+      "Tackett's Mill",
+      "Potomac Mills",
+      "Route 234 Dumfries"
+    ],
+    "driver_note": "Drivers can only pick up heading south on 14th Street.",
+    "parking_tip": "Meter parking and parking garages"
+  },
+  {
+    "name": "14th and G Street",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location": "Washington, near the intersection of 14th and G Street.",
+    "description":
+      "the line forms at the corner of 14th & G in front of the \"Metropolitan Square\" sign and the blue CitiBank awnings.",
+    "latitude": 38.8983697,
+    "longitude": -77.0324107,
+    "best_hours": "4:00 to 5:30 p.m. ",
+    "good_hours": "4:00 to 5:30 p.m. ",
+    "destinations": ["Route 610"],
+    "returning_stations": ["Route 610"],
+    "driver_note": "Drivers can only pick up heading south on 14th Street.",
+    "parking_tip": "Meter parking and parking garages"
+  },
+  {
+    "name": "14th and Independence",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location":
+      "Washington, near the intersection of 14th Street and Independence Avenue.",
+    "description":
+      "Forms on the east side of the Auditors Building of the Smithsonian. Like most lines, it is on the sidewalk co-located with the bus stop. However, recently the line has moved across the street to the northern side of Independence and 14th street. Recently it was reported that Slugs line up at the fire hydrant but some wait near the railing on the auditors building (and then join the bus line if a bus get there before a slug driver).  For the most part, only sluggers are standing at the fire hydrant.",
+    "latitude": 38.887568,
+    "longitude": -77.032318,
+    "best_hours": "4:00 - 5:00 p.m.",
+    "good_hours": "4:00 - 5:00 p.m.",
+    "destinations": [
+      "Tackett's Mill",
+      "Potomac Mills",
+      "Horner Road",
+      "Old Hechinger’s",
+      "Route 610"
+    ],
+    "returning_stations": [
+      "Tackett's Mill",
+      "Potomac Mills",
+      "Horner Road",
+      "Old Hechinger’s",
+      "Route 610"
+    ],
+    "driver_note":
+      "Drivers can only pick up heading south on 14th Street. If there aren’t any slugs here, it’s better to continue on to the Pentagon rather than backtrack to 14th and New York.",
+    "parking_tip": "Meter parking and parking garages"
+  },
+  {
+    "name": "14th at Commerce Dept",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "note": "",
+    "location": "",
+    "description": "",
+    "latitude": 38.4668761,
+    "longitude": -77.4185521,
+    "best_hours": "5:45 - 7:30 a.m.",
+    "good_hours": "5:45 - 7:30 a.m.",
+    "destinations": [
+      "Pentagon",
+      "Crystal City",
+      "Rosslyn",
+      "Downtown DC (Newly forming)"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "15th & NY",
+      "Rosslyn",
+      "L'Enfant Plaza",
+      "Crystal Gateway",
+      "14th and G Street"
+    ],
+    "driver_note": "",
+    "parking_tip": ""
+  },
+  {
+    "name": "19th & F Street",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location": "Washington, near the intersection of 19th and F Streets.",
+    "description":
+      "Line forms about 50 feet south of F Street just past the second parking meter.",
+    "latitude": 38.9019994,
+    "longitude": -77.0504368,
+    "best_hours": "4:15 - 5:00 p.m.",
+    "good_hours": "4:15 - 5:00 p.m.",
+    "destinations": ["Bob’s", "Rolling Valley"],
+    "returning_stations": ["Bob’s", "Rolling Valley"],
+    "driver_note":
+      "Drivers pick up heading South on 19th Street because it is one way. If there aren’t any slugs here, you can try 14th and Constitution or travel on to the Pentagon rather than backtrack to 14th and New York.",
+    "parking_tip": "N/A"
+  },
+  {
+    "name": "Crystal City",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location": "1200 Crystal Drive and 12th Street.",
+    "description":
+      "The line forms at northern end of Crystal City near the sharp turn on Crystal Drive and 12th Street. There are generally two lines: one for Woodbridge destinations and the other for Stafford.",
+    "latitude": 38.8622835,
+    "longitude": -77.0515522,
+    "best_hours": "4:00 - 5:00 p.m.",
+    "good_hours":
+      "If you have a problem getting a slug/driver at this location, an option is to catch the metro over to the Pentagon.",
+    "destinations": [
+      "Tackett's Mill",
+      "Route 234 Dumfries",
+      "Horner Road",
+      "Route 610"
+    ],
+    "returning_stations": [
+      "Pentagon",
+      "15th & NY",
+      "Rosslyn",
+      "L'Enfant Plaza",
+      "Crystal Gateway",
+      "14th and G Street"
+    ],
+    "driver_note": "",
+    "parking_tip": "Meter parking and parking garages"
+  },
+  {
+    "name": "L'Enfant Plaza",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location":
+      "Washington, near the intersection of 7th and D Street SW, near the General Services Administration Building.",
+    "description":
+      "There are really three (3) lines forms near the corner of 7th and D street and alongside the General Services Administration Building and across from L’Enfant Plaza. The 395 South entrance is across the street from the slug line. Route 610 forms about twenty yards east of the western end of the GSA building near the fire hydrant, followed by the Horner Road line and the Springfield line forms on the far eastern corner of the building.",
+    "latitude": 38.8847749,
+    "longitude": -77.02378991,
+    "best_hours": "3:30 - 5:30 p.m.",
+    "good_hours": "3:30 - 5:30 p.m.",
+    "destinations": [
+      "Bob’s",
+      "Tackett's Mill",
+      "Cardinal Forest",
+      "Horner Road",
+      "Rolling Valley",
+      "Route 610",
+      "Mine Road",
+      "Daventry Subdivision",
+      "Sydenstricker"
+    ],
+    "returning_stations": [
+      "Bob’s",
+      "Tackett's Mill",
+      "Cardinal Forest",
+      "Horner Road",
+      "Rolling Valley",
+      "Route 610",
+      "Mine Road",
+      "Daventry Subdivision",
+      "Sydenstricker"
+    ],
+    "driver_note":
+      "Normally, drivers pick up, heading west on D street. If riders are not available, the next best option is to try 14th and Constitution or the Pentagon.",
+    "parking_tip": "Meter parking and parking garages."
+  },
+  {
+    "name": "Mark Center",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location": "Kiss and ride location, near the Mark Center bus terminal",
+    "description":
+      "Braddock Rd riders will have a sign displayed for Braddock Rd.  Slugs will be standing at the kiss and ride paved area so that drivers can easily and safely move out of traffic to pick up riders.",
+    "latitude": 38.8301761,
+    "longitude": -77.1187073,
+    "best_hours": "3:00 - 6:00 p.m.",
+    "good_hours": "3:00 - 6:00 p.m.",
+    "destinations": [
+      "Braddock Road",
+      "Horner Road",
+      "Montclair",
+      "Tackett's Mill",
+      "Route 610",
+      "Route 630",
+      "Route 17",
+      "Route 3 Gordon Road"
+    ],
+    "returning_stations": [
+      "Braddock Road",
+      "Horner Road",
+      "Montclair",
+      "Tackett's Mill",
+      "Route 610",
+      "Route 630",
+      "Route 17",
+      "Route 3 Gordon Road"
+    ],
+    "driver_note":
+      "West bound Braddock Rd drivers who will pick up slugs as a courtesy and/or to utilize the HOV on I-395 S",
+    "parking_tip":
+      "No parking is needed because riders walk to the Kiss and Ride location."
+  },
+  {
+    "name": "Navy Yard",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location": "300 M St SE, Washington, DC 20003",
+    "description":
+      "Back in March 2015, there was an attempt to create two Slug-lines: one on base but keep the original off-base. Feedback from slugs was that the on-base line was not supported and no long exists. The current slug line is at 300 M St SE, Washington, DC 20003 in front of the office building. If you look at the photo in the Google Map 360 view, there's a tree that marks where slugs line up in front of the office building. It's on your left as you look from the street, or on your right as you come out of the building. A lot of other people wait by the doors for commuter vans, etc., but they aren't slugs. It can be very confusing for new people, drivers and slugs alike.",
+    "latitude": 38.8768048,
+    "longitude": -77.0034831,
+    "best_hours": "3:00 - 6:00 p.m.",
+    "good_hours": "3:00 - 6:00 p.m.",
+    "destinations": ["Route 610", "Horner Road"],
+    "returning_stations": ["Route 610", "Horner Road"],
+    "driver_note": "",
+    "parking_tip": ""
+  },
+  {
+    "name": "Pentagon",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location":
+      "Along the southeast side of the Pentagon, near the intersection of Fern Street in the South Parking Area and in the far eastern parking area off of South Rotary Road.",
+    "description":
+      "The Pentagon has slug lines, one for each of the main slugging areas.  Please see the map for exact locations for each of the slug lines.",
+    "latitude": 38.8659813,
+    "longitude": -77.061034,
+    "best_hours": "3:00 - 6:00 p.m.",
+    "good_hours": "3:00 - 6:00 p.m.",
+    "destinations": [
+      "Bob's",
+      "Potomac Mills",
+      "Cardinal Forest Shopping Center",
+      "Rolling Valley",
+      "Daventry Subdivision",
+      "Route 610",
+      "Route 234 Dumfries",
+      "Route 630",
+      "Route 17",
+      "Horner Road",
+      "Huntsman and Sydenstricker",
+      "Route 3 Gordon Road",
+      "Tackett's Mill",
+      "Montclair",
+      "Lorton VRE"
+    ],
+    "returning_stations": [
+      "Bob's",
+      "Potomac Mills",
+      "Cardinal Forest Shopping Center",
+      "Rolling Valley",
+      "Daventry Subdivision",
+      "Route 610",
+      "Route 234 Dumfries",
+      "Route 630",
+      "Route 17",
+      "Horner Road",
+      "Huntsman and Sydenstricker",
+      "Route 3 Gordon Road",
+      "Tackett's Mill",
+      "Montclair",
+      "Lorton VRE"
+    ],
+    "driver_note":
+      "Simply pull up to your slug line and call out how many slugs and your destination.",
+    "parking_tip":
+      "Permit only, reserved at all times to include the new carpool permits. Some meter parking along Fern Street and Army Drive south of I-395."
+  },
+  {
+    "name": "Rosslyn",
+    "is_morning": false,
+    "line": "Washington DC Lines",
+    "location":
+      "Two separate lines in Arlington. The first is between North Moore Street and North Fort Myer Drive on the Lee Hwy service road. (approximately 1995 North Moore Street Arlington, VA 22209 US), and the second is on North Kent Street.",
+    "description":
+      "One set of slug lines form on Lee Hwy service road between North Moore Street and North Fort Myer Drive. It is approximately 1.5 blocks from its original location which was across the street from the Rosslyn Metro stop. Now, you must exit the metro station (west entrance) and turn left which is a northern direction. The line itself is on the Lee Hwy service road between N. Moore and N. Fort Myer Drive. Signs have been erected to help locate the lines.",
+    "latitude": 38.8974462,
+    "longitude": -77.0733925,
+    "best_hours": "5:45 - 7:30 a.m.",
+    "good_hours": "5:45 - 7:30 a.m.",
+    "destinations": [
+      "Potomac Mills",
+      "Horner Road",
+      "Tackett's Mill",
+      "Route 234 Dumfries",
+      "Route 610",
+      "Route 3 Gordon Road",
+      "Rolling Valley",
+      "Huntsman and Sydenstricker",
+      "Daventry Subdivision",
+      "Cardinal Forest Shopping Center",
+      "Route 17"
+    ],
+    "returning_stations": [
+      "Potomac Mills",
+      "Horner Road",
+      "Tackett's Mill",
+      "Route 234 Dumfries",
+      "Route 610",
+      "Route 3 Gordon Road",
+      "Rolling Valley",
+      "Huntsman and Sydenstricker",
+      "Daventry Subdivision",
+      "Cardinal Forest Shopping Center",
+      "Route 17"
+    ],
+    "driver_note": "",
+    "parking_tip": ""
+  }
+]

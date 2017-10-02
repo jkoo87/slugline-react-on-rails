@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Slugline, AppHeader } from "../components";
+import { AppHeader } from "../components";
+import MapboxLayout from "./MapboxLayout";
+import SluglineListContainer from "./SluglineListContainer";
+import axios from "axios";
 
 export default class Sluglines extends React.Component {
   static propTypes = {};
@@ -11,12 +14,25 @@ export default class Sluglines extends React.Component {
       sluglines: this.props.sluglines
     };
   }
+  componentDidMount() {
+    axios({
+      method: "get",
+      url: `/sluglines.json`
+    })
+      .then(response => {
+        this.setState({ sluglines: response.data });
+      })
+      .catch(error => {
+        console.log("Error");
+        console.log(error);
+      });
+  }
 
   render() {
     return (
       <div>
-        <h3>Hello {this.state.sluglines[3].name}!</h3>
-        <Slugline sluglines={this.state.sluglines}/>
+        <MapboxLayout />
+        <SluglineListContainer sluglines={this.state.sluglines} />
       </div>
     );
   }

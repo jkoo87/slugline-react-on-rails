@@ -4,19 +4,24 @@ import Sluglines from "./containers/Sluglines";
 import { AppHeader, Slugline } from "./components";
 
 export default props => {
-  console.log(props);
   return (
     <Router>
       <div>
         <Route path="/" component={AppHeader} />
+          <Route
+            exact
+            path="/"
+            render={routerProps => (
+              <Sluglines {...routerProps} sluglines={props.sluglines} />
+            )}
+          />
         <Route
           exact
-          path="/"
+          path="/sluglines/:id"
           render={routerProps => (
-            <Sluglines {...routerProps} sluglines={props.sluglines} />
+            <Slugline {...routerProps} slugline={props.slugline} />
           )}
         />
-        <Route exact path="/sluglines/:id" component={Slugline} />
       </div>
     </Router>
   );

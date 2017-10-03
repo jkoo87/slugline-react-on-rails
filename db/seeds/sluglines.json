@@ -227,8 +227,8 @@
       "The Rt. 123/I95 Commuter lot is located at the intersection of Rt. 123 and I95 (near exit 160)",
     "description":
       "This is a brand new slugging area that was created after the reduction in parking spaces at Potomac Mills Mall on February 14th, 2011.",
-    "latitude": 38.775857,
-    "longitude": -77.262958,
+    "latitude": 38.6699513,
+    "longitude": -77.2524583,
     "best_hours": "6:20 AM - 8:15 AM",
     "good_hours": "6:00 AM - 9:40 AM",
     "destinations": ["Tyson's Corner"],
@@ -443,8 +443,8 @@
       "Stafford, in the commuter lot south of Garrisonville Road (Route 610 ) off Stafford Boulevard. Use exit 143B (Route 610, Garrisonville) off I-95. Lot is near the intersection at Garrisionville and Mine Road, Stafford, VA 22554",
     "description":
       "Due to the HOT lanes, slugging has increased and now begins around 4:30 a.m. and is generally full by around 6:15. There are currently two lines: one for DC \"downtown\" destinations and another for the Pentagon/Crystal City. For the return trip in the afternoon from the Pentagon, look for the sign \"610- Mine Rd\". ",
-    "latitude": 38.4669189,
-    "longitude": -77.4186019,
+    "latitude": 38.4664654,
+    "longitude": -77.4170402,
     "best_hours": "4:30 - 6:30 a.m.",
     "good_hours": "4:30 - 6:30 a.m.",
     "destinations": [
@@ -477,8 +477,8 @@
       "Stafford, in the commuter lot behind McDonald’s, north of Garrisonville Road (Route 610 ) off Stafford Boulevard. Use exit 143B (Route 610, Garrisonville) off I-95. Lot is near the intersection at Garrisionville and Mine Road, Stafford, VA 22554.",
     "description":
       "Route 610 Lot - This commuter lot is located behind McDonalds. Slugs stand near the bus stop shelter near the center of the commuter lot. This lot was recently explanded and provides ample parking.",
-    "latitude": 38.4668761,
-    "longitude": -77.4185521,
+    "latitude": 38.4704019,
+    "longitude": -77.411538,
     "best_hours": "5:45 - 7:30 a.m.",
     "good_hours": "5:45 - 7:30 a.m.",
     "destinations": [
@@ -583,8 +583,8 @@
       "Washington, near the intersection of 14th and D Street on the eastern side of the Commerce Building near the National Aquarium.",
     "description":
       "Like the slug line on 14th and New York, the one at the Commerce Building has two separate lines. The line is similar to the other lines on 14th street because it is co-located with a bus stop. The two lines service the Lake Ridge area (Old Hechinger’s) and Dale City (Potomac Mills, Horner Road).",
-    "latitude": 38.893401,
-    "longitude": -77.0320208,
+    "latitude": 38.8933646,
+    "longitude": -77.0320244,
     "best_hours": "4:00 and 5:00 p.m.",
     "good_hours":
       "Most 234 lot people begin accumulating for these five buses:  3:54, 4:15, 4:34, 4:55, and 5:14, however there are people waiting for the earlier 3:14 and 3:35 buses too.",
@@ -601,8 +601,8 @@
       "Washington, near the intersection of 14th and F Street, near the 600 block.",
     "description":
       "The slug line is located in front of the Hamilton restaurant just a few meters from the bus stop (near the pole that has OmniRide information on it) at the corner of 14th and F street. Actually, there are three lines: One for Lake Ridge, another for Dale City, and a third for Montclair/234. These lines serve as both slug lines and OmniRide bus lines.",
-    "latitude": 38.4668761,
-    "longitude": -77.4185521,
+    "latitude": 38.8972244,
+    "longitude": -77.0322417,
     "best_hours": "5:45 - 7:30 a.m.",
     "good_hours": "5:45 - 7:30 a.m.",
     "destinations": ["Tackett's Mill", "Potomac Mills", "Route 234 Dumfries"],
@@ -659,34 +659,6 @@
     "driver_note":
       "Drivers can only pick up heading south on 14th Street. If there aren’t any slugs here, it’s better to continue on to the Pentagon rather than backtrack to 14th and New York.",
     "parking_tip": "Meter parking and parking garages"
-  },
-  {
-    "name": "14th at Commerce Dept",
-    "is_morning": false,
-    "line": "Washington DC Lines",
-    "note": "",
-    "location": "",
-    "description": "",
-    "latitude": 38.4668761,
-    "longitude": -77.4185521,
-    "best_hours": "5:45 - 7:30 a.m.",
-    "good_hours": "5:45 - 7:30 a.m.",
-    "destinations": [
-      "Pentagon",
-      "Crystal City",
-      "Rosslyn",
-      "Downtown DC (Newly forming)"
-    ],
-    "returning_stations": [
-      "Pentagon",
-      "15th & NY",
-      "Rosslyn",
-      "L'Enfant Plaza",
-      "Crystal Gateway",
-      "14th and G Street"
-    ],
-    "driver_note": "",
-    "parking_tip": ""
   },
   {
     "name": "19th & F Street",

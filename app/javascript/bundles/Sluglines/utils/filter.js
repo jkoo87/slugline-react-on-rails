@@ -1,5 +1,5 @@
 /**
-* Filter Slugline list by its morning/afternoon key
+* Filter Slugline list by its morning/afternoon key value
 */
 export function filterMorningList(sluglines, boolean) {
   const filteredSluglineList = sluglines.filter(line => {

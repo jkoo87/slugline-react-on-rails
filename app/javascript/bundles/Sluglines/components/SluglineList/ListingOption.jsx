@@ -1,4 +1,5 @@
 import React from "react";
+import { getLineColor } from "../../utils/mapfunctions.js";
 
 export const ListingOption = props => (
   <div>
@@ -11,7 +12,7 @@ export const ListingOption = props => (
     <div>
       {props.lineArray.map((line, i) => {
         return (
-          <button key={i} value={line} onClick={props.handleLinesButton}>
+          <button style={{backgroundColor: getLineColor(line)}} key={i} value={line} onClick={props.handleLinesButton}>
             {line}
           </button>
         );

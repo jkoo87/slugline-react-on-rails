@@ -4,14 +4,14 @@ export const Map = ReactMapboxGl({
   accessToken:
     "pk.eyJ1Ijoiamtvbzg3IiwiYSI6ImNqODR4MjV5ODBmMjgycW82dzZ1MG56MnAifQ.W-XPeSwFh6fJ5B9Dujfw9A",
   scrollZoom: true,
-  hash: false,
-  minZoom: 9
+  hash: true,
+  minZoom: 7
 });
 
 export const styles =  {
   container: {
-    height: "80vh",
-    width: "100%"
+    height: "100vh",
+    width: "50%"
   },
   stationDescription: {
     position: "absolute",

@@ -8,9 +8,16 @@ export function getBoundsArr(arr) {
   return geolib.getBounds(boundingBoxes)
 }
 
-
+export function getBoundsArrFromCluster(arr) {
+  const boundingBoxes = []
+  arr.forEach((obj)=>{
+    return boundingBoxes.push({latitude: obj.props.coordinates[1], longitude: obj.props.coordinates[0]})
+  })
+  return geolib.getBounds(boundingBoxes)
+}
 
 export function getLineColor(line) {
+  console.log("color")
   switch(line){
     case "Springfield/Lorton Lines":
       return "gold"

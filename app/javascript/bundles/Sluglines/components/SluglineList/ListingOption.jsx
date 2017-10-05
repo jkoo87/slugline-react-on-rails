@@ -3,6 +3,9 @@ import { getLineColor } from "../../utils/mapfunctions.js";
 
 export const ListingOption = props => (
   <div>
+    <button value="all" onClick={props.handleIsMorningButton}>
+      All Stations
+    </button>
     <button value="morning" onClick={props.handleIsMorningButton}>
       Morning Stations
     </button>

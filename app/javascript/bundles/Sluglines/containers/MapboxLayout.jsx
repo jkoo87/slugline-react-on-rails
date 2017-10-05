@@ -1,13 +1,23 @@
 import PropTypes from "prop-types";
 import React from "react";
 import {} from "../components";
-import ReactMapboxGl, { Layer, Feature, Popup, Marker, Cluster } from "react-mapbox-gl";
+import ReactMapboxGl, {
+  Layer,
+  Popup,
+  Marker,
+  Feature,
+  Cluster,
+  ZoomControl,
+  RotationControl
+} from "react-mapbox-gl";
 import {
   getBoundsArr,
+  getBoundsArrFromCluster,
   getLineColor
 } from "../utils/mapfunctions.js";
 import { Map, clusterMarker, styles } from "../utils/mapInitialSetup.js";
-import geolib from "geolib"
+import geolib from "geolib";
+import geojson from "../components/MapboxComponents/stations.json";
 
 export default class MapboxLayout extends React.Component {
   static propTypes = {};
@@ -18,9 +28,8 @@ export default class MapboxLayout extends React.Component {
       sluglines: this.props.showList,
       center: [-77.2524583, 38.6699513],
       zoom: [9],
-      skip: 0,
-      selectedSlugline: this.props.selectedSlugline,
-      popupShowLabel: true
+      fitBounds: this.getFitBounds(this.props.showList),
+      selectedSlugline: null
     };
   }
 
@@ -28,20 +37,42 @@ export default class MapboxLayout extends React.Component {
     console.log("componentDidUpdate");
   }
 
+  componentDidMount() {
+    const center = geolib.getCenter(this.props.showList);
+    this.setState({
+      fitBounds: this.getFitBounds(this.props.showList),
+      center: [center.longitude, center.latitude]
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.showList !== this.props.showList) {
+      this.setState({
+        fitBounds: this.getFitBounds(nextProps.showList)
+      });
+    }
+  }
+
   markerClick = (selectedSlugline, { feature }) => {
     //Define the selected station, store it in the state
     this.setState({
-      center:[selectedSlugline.longitude, selectedSlugline.latitude],
-      zoom: [14],
+      center: [selectedSlugline.longitude, selectedSlugline.latitude],
+      zoom: [14.5],
       selectedSlugline
     });
   };
 
-  popupChange = popupShowLabel => {
-    this.setState({ popupShowLabel });
+  clusterMarkerClick = (coordinates, getLeaves) => {
+    const clusterArr = getBoundsArrFromCluster(getLeaves());
+    this.setState({
+      fitBounds: [
+        [clusterArr.minLng, clusterArr.minLat],
+        [clusterArr.maxLng, clusterArr.maxLat]
+      ]
+    });
   };
 
-  onDrag = () => {
+  onDrag = e => {
     //If a selectedSlugline is selected and user drag the map, unselect it
     if (this.state.selectedSlugline) {
       this.setState({
@@ -50,44 +81,76 @@ export default class MapboxLayout extends React.Component {
     }
   };
 
-  onMouseEnterFunc = (cursor, selectedSlugline, { map }) => {
+  onMouseEnterFunc = (cursor, selectedSlugline) => {
     //change cursor style
     this.setState({
       selectedSlugline
     });
   };
 
-  onMouseLeaveFunc = (cursor, { map }) => {
-    this.onDrag();
+  onMouseLeaveFunc = cursor => {
+    if (this.state.selectedSlugline) {
+      this.setState({
+        selectedSlugline: null
+      });
+    }
   };
 
-  clusterMarker = (coordinates, pointCount: number) => (
+  getFitBounds = sluglines => {
+    const arr = getBoundsArr(sluglines);
+    return [[arr.minLng, arr.minLat], [arr.maxLng, arr.maxLat]];
+  };
+
+  clusterMarker = (
+    coordinates,
+    pointCount: number,
+    getLeaves: (
+      limit?: number,
+      offset?: number
+    ) => Array<React.ReactElement<any>>
+  ) => (
     <Marker
+      id="sluglines"
       key={coordinates.toString()}
       coordinates={coordinates}
       style={styles.clusterMarker}
+      onClick={this.clusterMarkerClick.bind(this, coordinates, getLeaves)}
     >
       <div>{pointCount}</div>
     </Marker>
   );
 
   render() {
-    const test = getBoundsArr(this.props.showList)
-    const what = [[test.minLng, test.minLat], [test.maxLng, test.maxLat]]
-
-
-
-    const { zoom, center, skip, selectedSlugline, popupShowLabel } = this.state;
+    console.log(geojson);
+    const {
+      zoom,
+      center,
+      skip,
+      fitBounds,
+      selectedSlugline,
+      popupShowLabel
+    } = this.state;
     return (
       <Map
         style="mapbox://styles/mapbox/streets-v9"
         zoom={zoom}
         center={center}
-        onDrag={this.onDrag}
+        onDragEnd={this.onDrag.bind(Map)}
         containerStyle={styles.container}
-        fitBounds={what}
-
+        fitBounds={fitBounds}
+        fitBoundsOptions={{
+          padding: { top: 25, bottom: 25, left: 25, right: 25 },
+          maxZoom: 14,
+          linear: true
+        }}
       >
+        <RotationControl />
+        <ZoomControl zoomDiff={1} />
+
+          <Layer type="symbol" id="marker" layout={{ "icon-image": "rail-metro" }}>
+            <Feature coordinates={[-77.12911152370515, 38.79930767201779]} />
+          </Layer>
+
         <Cluster ClusterMarkerFactory={this.clusterMarker}>
           {this.props.showList.map((slugline, i) => (
             <Marker
@@ -96,16 +159,14 @@ export default class MapboxLayout extends React.Component {
               data-feature={slugline}
               coordinates={[slugline.longitude, slugline.latitude]}
               onClick={this.markerClick.bind(this, slugline)}
-              onMouseEnter={this.onMouseEnterFunc.bind(
-                this,
-                "pointer",
-                slugline
-              )}
+              onMouseEnter={() => {
+                this.onMouseEnterFunc("pointer", slugline);
+              }}
               onMouseLeave={this.onMouseLeaveFunc.bind(this, "")}
             >
               <div
                 style={{
-                  backgroundColor: getLineColor(slugline.line),
+                  backgroundColor: slugline.color,
                   padding: "5px 8px",
                   borderRadius: "50%"
                 }}
@@ -119,7 +180,10 @@ export default class MapboxLayout extends React.Component {
         {selectedSlugline && (
           <Popup
             key={selectedSlugline.id}
-            coordinates={[selectedSlugline.longitude, selectedSlugline.latitude]}
+            coordinates={[
+              selectedSlugline.longitude,
+              selectedSlugline.latitude
+            ]}
             offset={[0, -50]}
             style={styles.popup}
           >

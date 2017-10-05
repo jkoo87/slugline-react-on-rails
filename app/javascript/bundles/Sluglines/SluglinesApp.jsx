@@ -2,6 +2,18 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Sluglines from "./containers/Sluglines";
 import { AppHeader, Slugline } from "./components";
+import update from "immutability-helper";
+import { getLineColor } from "./utils/mapfunctions.js";
+
+//add color to each slugline property before passed down to components
+const addColorToLines = arr => {
+  const newArr = []
+  arr.forEach((obj) => {
+    const newSluglines = update(obj, {$merge: {color: getLineColor(obj.line)}})
+    newArr.push(newSluglines)
+  })
+  return newArr
+};
 
 export default props => {
   return (
@@ -12,7 +24,7 @@ export default props => {
             exact
             path="/"
             render={routerProps => (
-              <Sluglines {...routerProps} sluglines={props.sluglines} />
+              <Sluglines {...routerProps} sluglines={addColorToLines(props.sluglines)} />
             )}
           />
         <Route

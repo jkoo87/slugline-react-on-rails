@@ -3,8 +3,15 @@ import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import { styles } from "../../utils/mapInitialSetup.js";
 
 export const SluglinesLayer = props => {
-  return(
-    <Layer type="symbol" id="sluglines" layout={{ "icon-image": "harbor-15" }} >
+  return (
+    <Layer
+      type="circle"
+      id="sluglines"
+      paint={{
+        "circle-radius": 8,
+        "circle-color": "rgba(55,148,179,1)"
+      }}
+    >
       {props.showList.map((slugline, i) => (
         <Feature
           key={slugline.id}
@@ -30,5 +37,5 @@ export const SluglinesLayer = props => {
         </Feature>
       ))}
     </Layer>
-  )
+  );
 };

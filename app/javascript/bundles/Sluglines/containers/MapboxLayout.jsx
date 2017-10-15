@@ -151,8 +151,6 @@ export default class MapboxLayout extends React.Component {
     const sluglinesLayer = (
       <SluglinesLayer
         showList={this.props.showList}
-        clusterMarker={this.clusterMarker}
-        clusterMarkerClick={this.clusterMarkerClick}
         markerClick={this.markerClick}
         onMouseEnterFunc={this.onMouseEnterFunc}
         onMouseLeaveFunc={this.onMouseLeaveFunc}

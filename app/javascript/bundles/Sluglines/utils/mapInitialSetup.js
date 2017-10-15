@@ -10,8 +10,8 @@ export const Map = ReactMapboxGl({
 
 export const styles =  {
   container: {
-    height: "100vh",
-    width: "50%"
+    height: "80vh",
+    width: "100%"
   },
   stationDescription: {
     position: "absolute",

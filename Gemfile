@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use rgeo to convert database to geojson
+gem 'rgeo-geojson', '~> 0.4.3'
+# Use decorator
+gem 'draper', '~> 3.0.1'
 gem 'react_on_rails', '~> 9.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

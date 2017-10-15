@@ -18,6 +18,11 @@ import {
 import { Map, clusterMarker, styles } from "../utils/mapInitialSetup.js";
 import geolib from "geolib";
 import geojson from "../components/MapboxComponents/stations.json";
+import {
+  ShowFeatures,
+  SluglinesCluster,
+  SluglinesLayer
+} from "../components/MapboxComponents";
 
 export default class MapboxLayout extends React.Component {
   static propTypes = {};
@@ -28,6 +33,7 @@ export default class MapboxLayout extends React.Component {
       sluglines: this.props.showList,
       center: [-77.2524583, 38.6699513],
       zoom: [9],
+      showCluster: false,
       fitBounds: this.getFitBounds(this.props.showList),
       selectedSlugline: null
     };
@@ -47,6 +53,7 @@ export default class MapboxLayout extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.showList !== this.props.showList) {
+      console.log("new fitBounds")
       this.setState({
         fitBounds: this.getFitBounds(nextProps.showList)
       });
@@ -72,7 +79,15 @@ export default class MapboxLayout extends React.Component {
     });
   };
 
+  onMove = e => {
+    const { zoom } = this.state;
+    const zoomOnMove = e.getZoom().toFixed(2);
+    const newState= zoomOnMove < 9 ?{showCluster: true}:{showCluster: false};
+    this.setState(newState);
+  };
+
   onDrag = e => {
+    console.log(e.queryRenderedFeatures(e.point, { layers: ["metro"] }));
     //If a selectedSlugline is selected and user drag the map, unselect it
     if (this.state.selectedSlugline) {
       this.setState({
@@ -101,14 +116,7 @@ export default class MapboxLayout extends React.Component {
     return [[arr.minLng, arr.minLat], [arr.maxLng, arr.maxLat]];
   };
 
-  clusterMarker = (
-    coordinates,
-    pointCount: number,
-    getLeaves: (
-      limit?: number,
-      offset?: number
-    ) => Array<React.ReactElement<any>>
-  ) => (
+  clusterMarker = (coordinates, pointCount, getLeaves) => (
     <Marker
       id="sluglines"
       key={coordinates.toString()}
@@ -121,23 +129,46 @@ export default class MapboxLayout extends React.Component {
   );
 
   render() {
-    console.log(geojson);
     const {
       zoom,
       center,
       skip,
       fitBounds,
       selectedSlugline,
-      popupShowLabel
+      popupShowLabel,
+      showCluster
     } = this.state;
+    const sluglinesCluster = (
+      <SluglinesCluster
+        showList={this.props.showList}
+        clusterMarker={this.clusterMarker}
+        clusterMarkerClick={this.clusterMarkerClick}
+        markerClick={this.markerClick}
+        onMouseEnterFunc={this.onMouseEnterFunc}
+        onMouseLeaveFunc={this.onMouseLeaveFunc}
+      />
+    );
+    const sluglinesLayer = (
+      <SluglinesLayer
+        showList={this.props.showList}
+        clusterMarker={this.clusterMarker}
+        clusterMarkerClick={this.clusterMarkerClick}
+        markerClick={this.markerClick}
+        onMouseEnterFunc={this.onMouseEnterFunc}
+        onMouseLeaveFunc={this.onMouseLeaveFunc}
+      />
+    );
+    const showSluglines = showCluster ? sluglinesCluster : sluglinesLayer;
+
     return (
       <Map
         style="mapbox://styles/mapbox/streets-v9"
         zoom={zoom}
         center={center}
-        onDragEnd={this.onDrag.bind(Map)}
+        onDragEnd={this.onDrag}
         containerStyle={styles.container}
         fitBounds={fitBounds}
+        onMove={this.onMove}
         fitBoundsOptions={{
           padding: { top: 25, bottom: 25, left: 25, right: 25 },
           maxZoom: 14,
@@ -147,36 +178,9 @@ export default class MapboxLayout extends React.Component {
         <RotationControl />
         <ZoomControl zoomDiff={1} />
 
-          <Layer type="symbol" id="marker" layout={{ "icon-image": "rail-metro" }}>
-            <Feature coordinates={[-77.12911152370515, 38.79930767201779]} />
-          </Layer>
+        {showSluglines}
+        <ShowFeatures geojson={geojson} />
 
-        <Cluster ClusterMarkerFactory={this.clusterMarker}>
-          {this.props.showList.map((slugline, i) => (
-            <Marker
-              key={slugline.id}
-              style={styles.marker}
-              data-feature={slugline}
-              coordinates={[slugline.longitude, slugline.latitude]}
-              onClick={this.markerClick.bind(this, slugline)}
-              onMouseEnter={() => {
-                this.onMouseEnterFunc("pointer", slugline);
-              }}
-              onMouseLeave={this.onMouseLeaveFunc.bind(this, "")}
-            >
-              <div
-                style={{
-                  backgroundColor: slugline.color,
-                  padding: "5px 8px",
-                  borderRadius: "50%"
-                }}
-                title={slugline.name}
-              >
-                SL
-              </div>
-            </Marker>
-          ))}
-        </Cluster>
         {selectedSlugline && (
           <Popup
             key={selectedSlugline.id}

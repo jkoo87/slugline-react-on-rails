@@ -50,7 +50,7 @@ export default class Sluglines extends React.Component {
     }
   }
 
-  //when button clicked 
+  //when button clicked
   handleIsMorningButton = e => {
     e.preventDefault();
     const morning = e.target.value;
@@ -86,7 +86,6 @@ export default class Sluglines extends React.Component {
       selectedSlugline,
       selectedSluglines
     } = this.state;
-    console.log(sluglines);
     return (
       <div>
         <MapboxLayout

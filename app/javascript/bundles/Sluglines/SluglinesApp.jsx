@@ -9,13 +9,17 @@ export default props => {
     <Router>
       <div>
         <Route path="/" component={AppHeader} />
-          <Route
-            exact
-            path="/"
-            render={routerProps => (
-              <Sluglines {...routerProps} sluglines={props.sluglines} />
-            )}
-          />
+        <Route
+          exact
+          path="/"
+          render={routerProps => (
+            <Sluglines
+              {...routerProps}
+              sluglines={props.sluglines}
+              lineList={props.lineList}
+            />
+          )}
+        />
         <Route
           exact
           path="/sluglines/:id"

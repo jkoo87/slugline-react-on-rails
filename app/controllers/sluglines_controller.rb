@@ -1,9 +1,8 @@
 class SluglinesController < ApplicationController
-  include SluglinesHelper
   def index
-    slugline = Slugline.new
     # Return geojson format db
-    @sluglines = slugline.convert_to_geojason(Slugline.all)
+    @sluglines = Slugline.convert_to_geojason
+    @line_list = Slugline.filter_line_list
     respond_to do |format|
       format.html { render action: 'index' }
       # render geojson

@@ -1,17 +1,17 @@
 import geolib from "geolib"
 
-export function getBoundsArr(arr) {
+export function getBoundsArr(sluglines) {
   const boundingBoxes = []
-  arr.forEach((obj)=>{
-    return boundingBoxes.push({latitude: obj.latitude, longitude: obj.longitude})
+  sluglines.features.forEach((obj)=>{
+    return boundingBoxes.push({latitude: obj.geometry.coordinates[1], longitude: obj.geometry.coordinates[0]})
   })
   return geolib.getBounds(boundingBoxes)
 }
 
-export function getBoundsArrFromCluster(arr) {
+export function getBoundsArrFromCluster(sluglines) {
   const boundingBoxes = []
-  arr.forEach((obj)=>{
-    return boundingBoxes.push({latitude: obj.props.coordinates[1], longitude: obj.props.coordinates[0]})
+  sluglines.features.forEach((obj)=>{
+    return boundingBoxes.push({latitude: obj.geometry.coordinates[1], longitude: obj.geometry.coordinates[0]})
   })
   return geolib.getBounds(boundingBoxes)
 }

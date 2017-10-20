@@ -22,14 +22,6 @@ const circlePaint: MapboxGL.CirclePaint = {
 var popup = new MapboxGL.Popup({
   closeButton: false
 });
-const onClickCircle = (e) => {
-  console.log(e);
-
-  console.log(Map)
-
-
-}
-
 
 
 export const NearByLayer = props => {

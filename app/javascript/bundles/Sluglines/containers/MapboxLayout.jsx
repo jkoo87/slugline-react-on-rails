@@ -3,26 +3,19 @@ import React from "react";
 import {} from "../components";
 import ReactMapboxGl, {
   Layer,
-  Popup,
-  Marker,
-  Feature,
-  Cluster,
   ZoomControl,
   RotationControl
 } from "react-mapbox-gl";
 import {
   getBoundsArr,
-  getBoundsArrFromCluster,
-  getLineColor
+  getBoundsArrFromCluster
 } from "../utils/mapfunctions.js";
 import { Map, clusterMarker, styles } from "../utils/mapInitialSetup.js";
+import * as MapboxGL from "mapbox-gl";
 import geolib from "geolib";
 import geojson from "../components/MapboxComponents/stations.json";
-import {
-  ShowFeatures,
-  SluglinesCluster,
-  SluglinesLayer
-} from "../components/MapboxComponents";
+import { ShowFeatures, SluglinesLayer } from "../components/MapboxComponents";
+import { filterDuplicates } from "../utils/filter.js";
 
 export default class MapboxLayout extends React.Component {
   static propTypes = {};
@@ -30,12 +23,15 @@ export default class MapboxLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sluglines: this.props.showList,
-      center: [-77.2524583, 38.6699513],
       zoom: [9],
+      fitBounds: this.getFitBounds(this.props.sluglines),
       showCluster: false,
-      fitBounds: this.getFitBounds(this.props.showList),
-      selectedSlugline: null
+      hasAddedSource: false,
+      map: null,
+      popup: new MapboxGL.Popup({
+        closeButton: false,
+        closeOnClick: false
+      })
     };
   }
 
@@ -44,28 +40,34 @@ export default class MapboxLayout extends React.Component {
   }
 
   componentDidMount() {
-    const center = geolib.getCenter(this.props.showList);
-    this.setState({
-      fitBounds: this.getFitBounds(this.props.showList),
-      center: [center.longitude, center.latitude]
-    });
+    // const center = geolib.getCenter(this.props.sluglines);
+    // console.log(geolib.getCenter(this.props.sluglines))
+    // this.setState({
+    //   fitBounds: this.getFitBounds(this.props.sluglines),
+    //   center: [center.longitude, center.latitude]
+    // });
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.showList !== this.props.showList) {
-      console.log("new fitBounds")
-      this.setState({
-        fitBounds: this.getFitBounds(nextProps.showList)
-      });
-    }
-  }
+  handleListFilter = line_id => {
+    // const map = this.state.map;
+    // const id = line_id;
+    // console.log("id", id);
+    // console.log("visible?", map.getLayoutProperty(id + "-circle", "visibility"))
+    // const visibility = map.getLayoutProperty(id + "-circle", "visibility");
+    // if (visibility === "visible") {
+    //   map.setLayoutProperty(id + "-circle", "visibility", "none");
+    //   map.setLayoutProperty(id + "-symbol", "visibility", "none");
+    // } else {
+    //   map.setLayoutProperty(id + "-circle", "visibility", "visible");
+    //   map.setLayoutProperty(id + "-symbol", "visibility", "visible");
+    // }
+  };
 
-  markerClick = (selectedSlugline, { feature }) => {
-    //Define the selected station, store it in the state
-    this.setState({
-      center: [selectedSlugline.longitude, selectedSlugline.latitude],
-      zoom: [14.5],
-      selectedSlugline
+  markerOnClick = e => {
+    console.log("click");
+    this.state.map.flyTo({
+      center: e.features[0].geometry.coordinates,
+      zoom: [14.5]
     });
   };
 
@@ -79,15 +81,27 @@ export default class MapboxLayout extends React.Component {
     });
   };
 
-  onMove = e => {
-    const { zoom } = this.state;
-    const zoomOnMove = e.getZoom().toFixed(2);
-    const newState= zoomOnMove < 9 ?{showCluster: true}:{showCluster: false};
-    this.setState(newState);
+  onMoveEnd = map => {
+    const selectedLines = this.props.selectedLines;
+    if (this.state.hasAddedSource) {
+      const query = map.queryRenderedFeatures({
+        geojsonlayer: ["Washington DC Lines-circle"],
+        filter: ["in", "line", ...selectedLines]
+      });
+      console.log(filterDuplicates(query));
+    }
+  };
+  onMove = map => {
+    const zoomOnMove = map.getZoom().toFixed(2);
+    const newState =
+      zoomOnMove < 8.5 ? { showCluster: true } : { showCluster: false };
+    if (zoomOnMove < 9) {
+      console.log("nononono");
+      this.setState(newState);
+    }
   };
 
   onDrag = e => {
-    console.log(e.queryRenderedFeatures(e.point, { layers: ["metro"] }));
     //If a selectedSlugline is selected and user drag the map, unselect it
     if (this.state.selectedSlugline) {
       this.setState({
@@ -96,77 +110,53 @@ export default class MapboxLayout extends React.Component {
     }
   };
 
-  onMouseEnterFunc = (cursor, selectedSlugline) => {
-    //change cursor style
-    this.setState({
-      selectedSlugline
-    });
+  onMouseEnterFunc = e => {
+    console.log(e);
+    this.state.map.getCanvas().style.cursor = "pointer";
+    const feature = e.features[0];
+    this.state.popup
+      .setLngLat(feature.geometry.coordinates)
+      .setText(feature.properties.name)
+      .addTo(this.state.map);
   };
 
   onMouseLeaveFunc = cursor => {
-    if (this.state.selectedSlugline) {
-      this.setState({
-        selectedSlugline: null
-      });
-    }
+    this.state.map.getCanvas().style.cursor = "";
+    this.state.popup.remove();
   };
 
   getFitBounds = sluglines => {
     const arr = getBoundsArr(sluglines);
+    console.log(arr);
     return [[arr.minLng, arr.minLat], [arr.maxLng, arr.maxLat]];
   };
 
-  clusterMarker = (coordinates, pointCount, getLeaves) => (
-    <Marker
-      id="sluglines"
-      key={coordinates.toString()}
-      coordinates={coordinates}
-      style={styles.clusterMarker}
-      onClick={this.clusterMarkerClick.bind(this, coordinates, getLeaves)}
-    >
-      <div>{pointCount}</div>
-    </Marker>
-  );
-
   render() {
+    console.log("selectedLine", this.props.selectedLine);
     const {
       zoom,
       center,
-      skip,
       fitBounds,
-      selectedSlugline,
-      popupShowLabel,
-      showCluster
+      showCluster,
+      hasAddedSource,
+      map
     } = this.state;
-    const sluglinesCluster = (
-      <SluglinesCluster
-        showList={this.props.showList}
-        clusterMarker={this.clusterMarker}
-        clusterMarkerClick={this.clusterMarkerClick}
-        markerClick={this.markerClick}
-        onMouseEnterFunc={this.onMouseEnterFunc}
-        onMouseLeaveFunc={this.onMouseLeaveFunc}
-      />
-    );
-    const sluglinesLayer = (
-      <SluglinesLayer
-        showList={this.props.showList}
-        markerClick={this.markerClick}
-        onMouseEnterFunc={this.onMouseEnterFunc}
-        onMouseLeaveFunc={this.onMouseLeaveFunc}
-      />
-    );
-    const showSluglines = showCluster ? sluglinesCluster : sluglinesLayer;
-
+    const { sluglines, selectedLines, selectedLine, lineArr } = this.props;
     return (
       <Map
+        onStyleLoad={map => {
+          map.addSource("sluglinesSource", {
+            type: "geojson",
+            data: sluglines
+          });
+          this.setState({ hasAddedSource: true, map: map });
+        }}
         style="mapbox://styles/mapbox/streets-v9"
         zoom={zoom}
-        center={center}
         onDragEnd={this.onDrag}
         containerStyle={styles.container}
         fitBounds={fitBounds}
-        onMove={this.onMove}
+        onMoveEnd={this.onMoveEnd}
         fitBoundsOptions={{
           padding: { top: 25, bottom: 25, left: 25, right: 25 },
           maxZoom: 14,
@@ -176,22 +166,18 @@ export default class MapboxLayout extends React.Component {
         <RotationControl />
         <ZoomControl zoomDiff={1} />
 
-        {showSluglines}
-        <ShowFeatures geojson={geojson} />
-
-        {selectedSlugline && (
-          <Popup
-            key={selectedSlugline.id}
-            coordinates={[
-              selectedSlugline.longitude,
-              selectedSlugline.latitude
-            ]}
-            offset={[0, -50]}
-            style={styles.popup}
-          >
-            <div>{selectedSlugline.name}</div>
-          </Popup>
+        {hasAddedSource && (
+          <SluglinesLayer
+            sluglines={this.props.sluglines}
+            markerOnClick={this.markerOnClick}
+            onMouseEnterFunc={this.onMouseEnterFunc}
+            onMouseLeaveFunc={this.onMouseLeaveFunc}
+            map={map}
+            showCluster={showCluster}
+            selectedLines={selectedLines}
+          />
         )}
+        <ShowFeatures geojson={geojson} />
       </Map>
     );
   }

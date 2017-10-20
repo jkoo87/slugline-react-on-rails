@@ -1,38 +1,34 @@
 class Slugline < ApplicationRecord
-  include SluglinesHelper
   # Convert database to geojson format
-  def convert_to_geojason(sluglines)
+  def self.convert_to_geojason
     arr = []
      # creates factory
     factory = RGeo::GeoJSON::EntityFactory.instance
     # https://stackoverflow.com/questions/36775869/rgeo-error-attempting-to-create-point-from-lat-lon
     pointFactory = RGeo::Geographic.spherical_factory(srid: 4326)
-    sluglines.each do | slugline |
+    all.each do | slugline |
       # Set geometry coordinates point
       position = pointFactory.point(slugline.longitude, slugline.latitude)
       # Set line color
-      line_color = set_line_color(slugline)
+      line_color = SluglinesController.helpers.set_line_color(slugline)
+      slugline_attributes = slugline.attributes
+      slugline_attributes[:color] = line_color
       # sets feature variable to feature properties returned from factory
       feature = factory.feature(position,
                                 slugline.id,
-                                { name: slugline.name,
-                                  color: line_color,
-                                  is_morning: slugline.is_morning,
-                                  note: slugline.note,
-                                  line: slugline.line,
-                                  location: slugline.location,
-                                  description: slugline.description,
-                                  best_hours: slugline.best_hours,
-                                  good_hours: slugline.good_hours,
-                                  destinations: slugline.destinations,
-                                  returning_stations: slugline.returning_stations,
-                                  driver_note: slugline.driver_note,
-                                  parking_tip: slugline.parking_tip})
+                                slugline_attributes)
      # adds returned contents to empty array instantiated line 7
      arr.push(feature)
     end
     # sets new feature collection with array containing feature properties
     feature_collection = RGeo::GeoJSON::FeatureCollection.new(arr)
     return RGeo::GeoJSON.encode(feature_collection)
+  end
+
+  def self.filter_line_list
+    {
+      morning: where(is_morning: true).map(&:line).uniq,
+      afternoon: where(is_morning: false).map(&:line).uniq
+    }
   end
 end

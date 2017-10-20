@@ -3,9 +3,10 @@ import React from "react";
 import { ListingOption, SluglineList } from "../components/SluglineList";
 import MapboxLayout from "./MapboxLayout";
 import axios from "axios";
+import update from "immutability-helper";
 import {
   filterMorningList,
-  checkDuplicates,
+  sortOutList,
   filterByLines
 } from "../utils/filter.js";
 
@@ -16,9 +17,10 @@ export default class Sluglines extends React.Component {
     super(props);
     this.state = {
       sluglines: this.props.sluglines,
-      lineArr: checkDuplicates(this.props.sluglines),
-      selectedSlugline: null,
-      selectedSluglines: this.props.sluglines
+      lineArr: sortOutList(this.props.lineList),
+      selectedSluglineList: null,
+      selectedLines: sortOutList(this.props.lineList),
+      selectedLine: null
     };
   }
 
@@ -35,71 +37,83 @@ export default class Sluglines extends React.Component {
     //   });
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    //update station lines when conditions are met
-    const sluglines = this.state.selectedSluglines;
-    const nextSlugines = nextState.selectedSluglines;
-    if (
-      sluglines[sluglines.length - 1].id !==
-        nextSlugines[nextSlugines.length - 1].id ||
-      sluglines.length !== nextSlugines.length
-    ) {
-      this.setState({
-        lineArr: checkDuplicates(nextState.selectedSluglines)
-      });
-    }
-  }
-
-  //when button clicked
+  //when button clicked show list based on all/morning/afternoon lines
   handleIsMorningButton = e => {
     e.preventDefault();
-    const morning = e.target.value;
-    const { sluglines, isMorningLine } = this.state;
-    if (morning === "morning") {
-      this.setState({
-        selectedSluglines: filterMorningList(sluglines, true)
-      });
-    } else if (morning === "afternoon") {
-      this.setState({
-        selectedSluglines: filterMorningList(sluglines, false)
-      });
-    } else if (morning === "all") {
-      this.setState({
-        selectedSluglines: sluglines,
-        isMorningLine: !isMorningLine
-      });
-    }
+    const isMorning = e.target.value;
+    const sortedOutList = sortOutList(this.props.lineList, isMorning);
+    this.setState({
+      lineArr: sortedOutList,
+      selectedLines: sortedOutList,
+      selectedLine: null
+    });
+    //put all slugline related checkboxes' checked button back to 'true'
+    const checkboxes = document.getElementsByName("sluglineCheckbox")
+    checkboxes.forEach(checkbox => checkbox.checked = true)
   };
 
   handleLinesButton = e => {
     e.preventDefault();
     const line = e.target.value;
     this.setState({
-      selectedSluglines: filterByLines(this.state.sluglines, line)
+      selectedSluglineList: filterByLines(this.state.sluglines, line)
     });
+  };
+
+  //select sluglines' line by checkbox option
+  handleSelectedSluglinesArray = e => {
+    const selectedCheckboxValue = e.target.value;
+    // this.setState({ selectedLine: selectedCheckboxValue, isReloadMap: false });
+
+    const selectedLines = this.state.selectedLines;
+    if (selectedLines.length == 0) {
+      const newArr = update(selectedLines, { $push: [selectedCheckboxValue] });
+      this.setState({
+        selectedLines: newArr
+      });
+    } else {
+      selectedLines.filter((line, i) => {
+        if (line == selectedCheckboxValue && !e.target.checked) {
+          const newArr = update(selectedLines, { $splice: [[i, 1]] });
+          this.setState({
+            selectedLines: newArr
+          });
+        } else if (line !== selectedCheckboxValue && e.target.checked) {
+          const newArr = update(selectedLines, {
+            $push: [selectedCheckboxValue]
+          });
+          this.setState({
+            selectedLines: newArr
+          });
+        }
+      });
+    }
   };
 
   render() {
     const {
       sluglines,
       lineArr,
-      selectedSlugline,
-      selectedSluglines
+      selectedSluglineList,
+      selectedLines,
+      selectedLine
     } = this.state;
+    console.log("selectedlines", selectedLines);
     return (
       <div>
-        <MapboxLayout
-          showList={selectedSluglines}
-          selectedSlugline={selectedSlugline}
+        <ListingOption
+          handleIsMorningButton={this.handleIsMorningButton}
+          handleLinesButton={this.handleLinesButton}
+          handleSelectedSluglinesArray={this.handleSelectedSluglinesArray}
+          lineArray={lineArr}
         />
-        <div>
-          <ListingOption
-            handleIsMorningButton={this.handleIsMorningButton}
-            handleLinesButton={this.handleLinesButton}
-            lineArray={lineArr}
-          />
-          <SluglineList showList={selectedSluglines} />
-        </div>
+        <MapboxLayout
+          sluglines={sluglines}
+          selectedSluglineList={selectedSluglineList}
+          selectedLines={selectedLines}
+          selectedLine={selectedLine}
+          lineArr={lineArr}
+        />
       </div>
     );
   }

@@ -14,10 +14,20 @@ export const ListingOption = props => (
     </button>
     <div>
       {props.lineArray.map((line, i) => {
+        console.log("list Array");
         return (
-          <button style={{backgroundColor: getLineColor(line)}} key={i} value={line} onClick={props.handleLinesButton}>
-            {line}
-          </button>
+          <div key={line}>
+            <input
+              type="checkbox"
+              value={line}
+              name="sluglineCheckbox"
+              defaultChecked={true}
+              onChange={props.handleSelectedSluglinesArray}
+            />
+            <button value={line} onClick={props.handleLinesButton}>
+              {line}
+            </button>
+          </div>
         );
       })}
     </div>

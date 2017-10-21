@@ -5,9 +5,9 @@ import MapboxLayout from "./MapboxLayout";
 import axios from "axios";
 import update from "immutability-helper";
 import {
-  filterMorningList,
   sortOutList,
-  filterByLines
+  filterByLines,
+  filterByLinesArr
 } from "../utils/filter.js";
 
 export default class Sluglines extends React.Component {
@@ -18,9 +18,9 @@ export default class Sluglines extends React.Component {
     this.state = {
       sluglines: this.props.sluglines,
       lineArr: sortOutList(this.props.lineList),
-      selectedSluglineList: null,
       selectedLines: sortOutList(this.props.lineList),
-      selectedLine: null
+      filteredFeatures: [],
+      filteredLineFitBound: []
     };
   }
 
@@ -39,13 +39,13 @@ export default class Sluglines extends React.Component {
 
   //when button clicked show list based on all/morning/afternoon lines
   handleIsMorningButton = e => {
-    e.preventDefault();
     const isMorning = e.target.value;
     const sortedOutList = sortOutList(this.props.lineList, isMorning);
     this.setState({
       lineArr: sortedOutList,
       selectedLines: sortedOutList,
-      selectedLine: null
+      filteredFeatures: filterByLinesArr(this.state.sluglines, sortedOutList),
+      filteredLineFitBound: []
     });
     //put all slugline related checkboxes' checked button back to 'true'
     const checkboxes = document.getElementsByName("sluglineCheckbox")
@@ -53,37 +53,50 @@ export default class Sluglines extends React.Component {
   };
 
   handleLinesButton = e => {
-    e.preventDefault();
     const line = e.target.value;
-    this.setState({
-      selectedSluglineList: filterByLines(this.state.sluglines, line)
-    });
+
+      this.setState({
+        filteredLineFitBound: filterByLines(this.state.sluglines, line)
+      });
   };
 
   //select sluglines' line by checkbox option
   handleSelectedSluglinesArray = e => {
     const selectedCheckboxValue = e.target.value;
-    // this.setState({ selectedLine: selectedCheckboxValue, isReloadMap: false });
-
+    const sluglines = this.state.sluglines
     const selectedLines = this.state.selectedLines;
     if (selectedLines.length == 0) {
+      console.log("0000000")
       const newArr = update(selectedLines, { $push: [selectedCheckboxValue] });
       this.setState({
-        selectedLines: newArr
+        selectedLines: newArr,
+        filteredFeatures: filterByLinesArr(sluglines, newArr),
+        filteredLineFitBound: []
       });
     } else {
       selectedLines.filter((line, i) => {
         if (line == selectedCheckboxValue && !e.target.checked) {
           const newArr = update(selectedLines, { $splice: [[i, 1]] });
-          this.setState({
-            selectedLines: newArr
-          });
+          if (!selectedLines.length){
+            this.setState({
+              selectedLines: newArr,
+              filteredLineFitBound: []
+            });
+          } else {
+            this.setState({
+              selectedLines: newArr,
+              filteredFeatures: filterByLinesArr(sluglines, newArr),
+              filteredLineFitBound: []
+            });
+          }
         } else if (line !== selectedCheckboxValue && e.target.checked) {
           const newArr = update(selectedLines, {
             $push: [selectedCheckboxValue]
           });
           this.setState({
-            selectedLines: newArr
+            selectedLines: newArr,
+            filteredFeatures: filterByLinesArr(sluglines, newArr),
+            filteredLineFitBound: []
           });
         }
       });
@@ -94,11 +107,10 @@ export default class Sluglines extends React.Component {
     const {
       sluglines,
       lineArr,
-      selectedSluglineList,
       selectedLines,
-      selectedLine
+      filteredFeatures,
+      filteredLineFitBound
     } = this.state;
-    console.log("selectedlines", selectedLines);
     return (
       <div>
         <ListingOption
@@ -109,10 +121,9 @@ export default class Sluglines extends React.Component {
         />
         <MapboxLayout
           sluglines={sluglines}
-          selectedSluglineList={selectedSluglineList}
           selectedLines={selectedLines}
-          selectedLine={selectedLine}
-          lineArr={lineArr}
+          filteredFeatures={filteredFeatures}
+          filteredLineFitBound={filteredLineFitBound}
         />
       </div>
     );

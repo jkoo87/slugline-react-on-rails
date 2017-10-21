@@ -51,36 +51,83 @@ export const SluglinesLayer = props => {
 
   return (
     <div>
-          <GeoJSONLayer
-            id='slugline'
-            data={sluglines}
+      <GeoJSONLayer
+        id="sluglineGeoJSON"
+        data={sluglines}
+        layerOptions={{
+          filter: ["in", "line", ...selectedLines]
+        }}
+        circleOnClick={markerOnClick}
+        circleOnMouseEnter={onMouseEnterFunc}
+        circleOnMouseLeave={onMouseLeaveFunc}
+        symbolOnMouseEnter={onMouseEnterFunc}
+        symbolOnMouseLeave={onMouseLeaveFunc}
+        circleLayout={{ visibility: "visible" }}
+        circlePaint={{
+          "circle-radius": {
+            base: 4,
+            stops: [[9, 6], [14, 0]]
+          },
+          "circle-color": lineColor
+        }}
+        symbolLayout={symbolLayout}
+        symbolPaint={{
+          "text-halo-color": lineColor,
+          "text-halo-width": 20,
+          "text-color": "black"
+        }}
+        fillPaint={{
+          "fill-color": "#f08",
+          "fill-opacity": 1
+        }}
+        sourceOptions={clusterOption}
+      />
+      // Layer of clustered spots
+      {showCluster &&
+        <div>
+          <Layer
+            id="cluster_layer"
+            sourceId="sluglineGeoJSON"
             layerOptions={{
-              filter: ["in", "line", ...selectedLines]
+              filter: [
+                "any",
+                ["in", "line", ...selectedLines],
+                ["has", "point_count"]
+              ]
             }}
-            circleOnClick={markerOnClick}
-            circleOnMouseEnter={onMouseEnterFunc}
-            circleOnMouseLeave={onMouseLeaveFunc}
-            circleLayout={{ visibility: "visible" }}
-            circlePaint={{
-              "circle-radius": {
-                base: 4,
-                stops: [[9, 6], [14, 0]]
+            paint={{
+              "circle-color": {
+                property: "point_count",
+                type: "interval",
+                stops: [[0, "#51bbd6"], [5, "#f1f075"], [10, "#f28cb1"]]
               },
-              "circle-color": lineColor
+              "circle-radius": {
+                property: "point_count",
+                type: "interval",
+                stops: [[2, 20], [7, 25], [10, 30]]
+              }
             }}
-            symbolLayout={symbolLayout}
-            symbolPaint={{
-              "text-halo-color": lineColor,
-              "text-halo-width": 20,
-              "text-color": "black"
-            }}
-            fillPaint={{
-              "fill-color": "#f08",
-              "fill-opacity": 1
-            }}
-            sourceOptions={clusterOption}
+            type="circle"
           />
-
+          <Layer
+            id="cluster_count"
+            sourceId="sluglineGeoJSON"
+            layerOptions={{
+              filter: [
+                "any",
+                ["in", "line", ...selectedLines],
+                ["has", "point_count"]
+              ]
+            }}
+            layout={{
+              "text-field": "{point_count_abbreviated}",
+              "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+              "text-size": 12
+            }}
+            type="symbol"
+          />
+        </div>
+      }
       //show layer with labels visible from a certain zoom
     </div>
   );

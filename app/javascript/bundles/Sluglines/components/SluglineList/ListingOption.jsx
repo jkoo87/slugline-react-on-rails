@@ -14,7 +14,6 @@ export const ListingOption = props => (
     </button>
     <div>
       {props.lineArray.map((line, i) => {
-        console.log("list Array");
         return (
           <div key={line}>
             <input

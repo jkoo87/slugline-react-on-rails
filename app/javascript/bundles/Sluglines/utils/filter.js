@@ -38,6 +38,20 @@ export function filterByLines(sluglines, line) {
 }
 
 /**
+* Filter Slugline list by lines(array)
+*/
+export function filterByLinesArr(sluglines, lineArr) {
+  const filteredSluglineList = sluglines.features.filter(slugline => {
+    return lineArr.filter(line => {
+      return slugline.properties.line === line;
+    }).length !== 0
+  });
+  console.log("filteredSluglineListArr", filteredSluglineList)
+  return filteredSluglineList;
+}
+
+
+/**
 * Filter duplicates when scrolled or zoom in/out (mapbox)
 */
 export function filterDuplicates(arrArg) {
